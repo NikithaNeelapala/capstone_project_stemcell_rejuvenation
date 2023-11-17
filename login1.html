@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+            margin-right: 40%;
+            padding: 0;
+            background-image: url('login background.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        button {
+            background-color: rgb(218, 32, 69);
+            width: 100%;
+            color: rgb(216, 213, 213);
+            padding: 15px;
+            margin: 10px 0px;
+            border: none;
+            cursor: pointer;
+        }
+
+        form {
+            padding-left: 60%;
+            height: 100%;
+            width: 35%;
+        }
+
+        input[type=text], input[type=email] {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid rgb(41, 11, 41);
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            padding: 25px;
+            background-color: rgb(216, 213, 213);
+        }
+
+        h1 {
+            padding-top: 12%;
+            font-family: 'Lucida Sans', 'Lucida Grande', sans-serif;
+            font-style: italic;
+            font-weight: bold;
+            color: rgb(240, 234, 240);
+            font-size: 50px;
+            padding-left: 67%;
+            transition: 1.0s;
+        }
+
+        h1:hover {
+            color: #ff0000;
+        }
+
+        label {
+            font-family: 'Lucida Sans', 'Lucida Grande', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Login Form</h1>
+    <form id="loginForm">
+        <div class="container">
+            <label>Username:</label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+            <label>password:</label>
+            <input type="password" placeholder="Enter password" name="password" required>
+            <button type="submit" value="Login">Login</button>
+        </div>
+    </form>
+
+    <script>
+        
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const users = [
+                { username: 'nikki', password:'560' },
+                { username: 'nandhu',  password:'574'},
+                { username: 'jaya', password:'573' },
+                { username: 'ammu', password:'555' }
+                
+            ];
+
+            const enteredUsername = document.getElementsByName('username')[0].value;
+            const enteredpassword = document.getElementsByName('password')[0].value;
+
+          
+            const user = users.find(u => u.username === enteredUsername && u.password === enteredpassword);
+
+            if (user) {
+                               window.location.href = 'project.html'; 
+            } else {
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+
+    </script>
+</body>
+</html>
